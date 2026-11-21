@@ -38,6 +38,8 @@
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedGossip.h"
+#include "StringConvert.h"
+#include "Tokenize.h"
 #include "World.h"
 #include "WorldSession.h"
 
@@ -46,6 +48,7 @@
 #include <random>
 #include <set>
 #include <unordered_map>
+#include <vector>
 
 using namespace Acore::ChatCommands;
 
@@ -79,21 +82,22 @@ namespace
 
     struct PerkInfo
     {
+        char const* key;    // Temucraft.Legacy.<key>.MaxRank / .PerRank
         char const* name;
         char const* effect;
         uint8 maxRank;
         float perRank;
     };
 
-    std::array<PerkInfo, PERK_COUNT> const PERKS = { {
-        { "Well Rested",       "+{}% experience",                       5, 2.0f },
-        { "Working Overtime",  "{}% chance of an extra crafting skill point", 5, 6.0f },
-        { "Bountiful Harvest", "{}% chance of an extra gathering skill point", 5, 6.0f },
-        { "Reinforce",         "repairs cost {}% less",                  5, 4.0f },
-        { "Diplomat",          "+{}% reputation",                        5, 2.0f },
-        { "Field Guide",       "+{}% quest experience",                  5, 2.0f },
-        { "Thrill of Adventure", "+{}% money looted",                    5, 3.0f },
-        { "Swift Flights",     "flight paths {}% faster",                5, 5.0f },
+    std::array<PerkInfo, PERK_COUNT> PERKS = { {
+        { "WellRested", "Well Rested",       "+{}% experience",                       5, 2.0f },
+        { "WorkingOvertime", "Working Overtime",  "{}% chance of an extra crafting skill point", 5, 6.0f },
+        { "BountifulHarvest", "Bountiful Harvest", "{}% chance of an extra gathering skill point", 5, 6.0f },
+        { "Reinforce", "Reinforce",         "repairs cost {}% less",                  5, 4.0f },
+        { "Diplomat", "Diplomat",          "+{}% reputation",                        5, 2.0f },
+        { "FieldGuide", "Field Guide",       "+{}% quest experience",                  5, 2.0f },
+        { "ThrillOfAdventure", "Thrill of Adventure", "+{}% money looted",                    5, 3.0f },
+        { "SwiftFlights", "Swift Flights",     "flight paths {}% faster",                5, 5.0f },
     } };
 
     // Achievement challenges: id 20000 + achievement. Honorable kills: 30000 + step.
@@ -106,7 +110,7 @@ namespace
         uint32 points;
         uint32 item;
     };
-    constexpr std::array<Reward, 4> REWARDS = { { { 15, 46725 }, { 25, 49343 }, { 40, 40643 }, { 55, 49283 } } };
+    std::vector<Reward> REWARDS = { { 15, 46725 }, { 25, 49343 }, { 40, 40643 }, { 55, 49283 } }; // Temucraft.Legacy.Rewards
 
     struct Challenge
     {
@@ -570,6 +574,27 @@ public:
     {
         legacy.enable = sConfigMgr->GetOption<bool>("Temucraft.Legacy.Enable", true);
         legacy.maxSpent = sConfigMgr->GetOption<uint32>("Temucraft.Legacy.MaxSpent", 16);
+        static std::array<PerkInfo, PERK_COUNT> const defaults = PERKS;
+        for (uint8 i = 0; i < PERK_COUNT; ++i)
+        {
+            std::string const base = std::string("Temucraft.Legacy.") + defaults[i].key;
+            PERKS[i].maxRank = uint8(std::min<uint32>(sConfigMgr->GetOption<uint32>(base + ".MaxRank", defaults[i].maxRank), 255));
+            PERKS[i].perRank = sConfigMgr->GetOption<float>(base + ".PerRank", defaults[i].perRank);
+        }
+        // "points:item points:item ..."
+        std::vector<Reward> rewards;
+        std::string const rewardList = sConfigMgr->GetOption<std::string>("Temucraft.Legacy.Rewards", "15:46725 25:49343 40:40643 55:49283");
+        for (std::string_view pair : Acore::Tokenize(rewardList, ' ', false))
+        {
+            std::vector<std::string_view> parts = Acore::Tokenize(pair, ':', false);
+            if (parts.size() != 2)
+                continue;
+            Optional<uint32> points = Acore::StringTo<uint32>(parts[0]);
+            Optional<uint32> item = Acore::StringTo<uint32>(parts[1]);
+            if (points && item)
+                rewards.push_back({ *points, *item });
+        }
+        REWARDS = rewards;
     }
 };
 

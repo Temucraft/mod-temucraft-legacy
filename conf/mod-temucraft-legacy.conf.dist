@@ -17,3 +17,122 @@ Temucraft.Legacy.Enable = 1
 #        Default:     16
 
 Temucraft.Legacy.MaxSpent = 16
+
+#
+#    Temucraft.Legacy.WellRested.MaxRank
+#        Description: Highest rank of the Well Rested perk.
+#        Default:     5
+
+Temucraft.Legacy.WellRested.MaxRank = 5
+
+#
+#    Temucraft.Legacy.WellRested.PerRank
+#        Description: Well Rested: percent more experience per rank.
+#        Default:     2
+
+Temucraft.Legacy.WellRested.PerRank = 2
+
+#
+#    Temucraft.Legacy.WorkingOvertime.MaxRank
+#        Description: Highest rank of the Working Overtime perk.
+#        Default:     5
+
+Temucraft.Legacy.WorkingOvertime.MaxRank = 5
+
+#
+#    Temucraft.Legacy.WorkingOvertime.PerRank
+#        Description: Working Overtime: percent chance of an extra crafting skill point per rank.
+#        Default:     6
+
+Temucraft.Legacy.WorkingOvertime.PerRank = 6
+
+#
+#    Temucraft.Legacy.BountifulHarvest.MaxRank
+#        Description: Highest rank of the Bountiful Harvest perk.
+#        Default:     5
+
+Temucraft.Legacy.BountifulHarvest.MaxRank = 5
+
+#
+#    Temucraft.Legacy.BountifulHarvest.PerRank
+#        Description: Bountiful Harvest: percent chance of an extra gathering skill point per rank.
+#        Default:     6
+
+Temucraft.Legacy.BountifulHarvest.PerRank = 6
+
+#
+#    Temucraft.Legacy.Reinforce.MaxRank
+#        Description: Highest rank of the Reinforce perk.
+#        Default:     5
+
+Temucraft.Legacy.Reinforce.MaxRank = 5
+
+#
+#    Temucraft.Legacy.Reinforce.PerRank
+#        Description: Reinforce: percent cheaper repairs per rank.
+#        Default:     4
+
+Temucraft.Legacy.Reinforce.PerRank = 4
+
+#
+#    Temucraft.Legacy.Diplomat.MaxRank
+#        Description: Highest rank of the Diplomat perk.
+#        Default:     5
+
+Temucraft.Legacy.Diplomat.MaxRank = 5
+
+#
+#    Temucraft.Legacy.Diplomat.PerRank
+#        Description: Diplomat: percent more reputation per rank.
+#        Default:     2
+
+Temucraft.Legacy.Diplomat.PerRank = 2
+
+#
+#    Temucraft.Legacy.FieldGuide.MaxRank
+#        Description: Highest rank of the Field Guide perk.
+#        Default:     5
+
+Temucraft.Legacy.FieldGuide.MaxRank = 5
+
+#
+#    Temucraft.Legacy.FieldGuide.PerRank
+#        Description: Field Guide: percent more quest experience per rank.
+#        Default:     2
+
+Temucraft.Legacy.FieldGuide.PerRank = 2
+
+#
+#    Temucraft.Legacy.ThrillOfAdventure.MaxRank
+#        Description: Highest rank of the Thrill of Adventure perk.
+#        Default:     5
+
+Temucraft.Legacy.ThrillOfAdventure.MaxRank = 5
+
+#
+#    Temucraft.Legacy.ThrillOfAdventure.PerRank
+#        Description: Thrill of Adventure: percent more looted money per rank.
+#        Default:     3
+
+Temucraft.Legacy.ThrillOfAdventure.PerRank = 3
+
+#
+#    Temucraft.Legacy.SwiftFlights.MaxRank
+#        Description: Highest rank of the Swift Flights perk.
+#        Default:     5
+
+Temucraft.Legacy.SwiftFlights.MaxRank = 5
+
+#
+#    Temucraft.Legacy.SwiftFlights.PerRank
+#        Description: Swift Flights: percent faster flight paths per rank.
+#        Default:     5
+
+Temucraft.Legacy.SwiftFlights.PerRank = 5
+
+#
+#    Temucraft.Legacy.Rewards
+#        Description: Rewards track, once per account: "points:item" pairs separated by spaces.
+#        Default:     "15:46725 25:49343 40:40643 55:49283"
+
+Temucraft.Legacy.Rewards = "15:46725 25:49343 40:40643 55:49283"
