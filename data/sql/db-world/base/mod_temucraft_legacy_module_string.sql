@@ -1,7 +1,7 @@
 -- mod-temucraft-legacy: player-facing texts. Translations go in module_string_locale (same module and id, plus the locale).
 DELETE FROM `module_string` WHERE `module` = 'mod-temucraft-legacy';
 INSERT INTO `module_string` (`module`, `id`, `string`) VALUES
-('mod-temucraft-legacy', 1, '|cffff8000Legacy challenge complete:|r {}. |cffff8000+1 Legacy point|r (every character on your account can spend it; .legacy).'),
+('mod-temucraft-legacy', 1, '|cffff8000Legacy challenge complete:|r {}. |cffff8000+1 Legacy point|r (every character on your account can spend it; .temucraft legacy).'),
 ('mod-temucraft-legacy', 2, '|cff8a4b00Legacy points: {} earned, {} of {} spent.|r'),
 ('mod-temucraft-legacy', 3, ' per rank'),
 ('mod-temucraft-legacy', 4, 'Challenges done'),

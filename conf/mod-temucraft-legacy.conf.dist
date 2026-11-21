@@ -6,7 +6,7 @@
 #
 #    Temucraft.Legacy.Enable
 #        Description: Legacy points: earned once per account (1 per class level 30/60/80 and crafting profession
-#                     150/300/450), spent per character on perks with .legacy.
+#                     150/300/450), spent per character on perks with .temucraft legacy.
 #        Default:     1
 
 Temucraft.Legacy.Enable = 1

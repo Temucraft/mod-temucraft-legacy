@@ -8,9 +8,9 @@
  *   - PvP: 100, 1000 and 10000 honorable kills
  *   - achievements: exploring each continent, the dungeonmaster and raider achievements, Molten Core, Blackwing Lair,
  *     Onyxia's Lair and the Black Temple
- * The rewards track (.legacy, "Legacy rewards") gives each account an item at 15, 25, 40 and 55 points earned.
+ * The rewards track (.temucraft legacy, "Legacy rewards") gives each account an item at 15, 25, 40 and 55 points earned.
  * Every character of the account can spend the account's points on perks, each character its own way, up to
- * Temucraft.Legacy.MaxSpent points. .legacy opens the menu: perks, challenges done, and a free reset.
+ * Temucraft.Legacy.MaxSpent points. .temucraft legacy opens the menu: perks, challenges done, and a free reset.
  *
  * Perks (5 ranks each):
  *   Well Rested         +2% experience per rank
@@ -228,7 +228,7 @@ namespace
         CharacterDatabase.Execute("INSERT IGNORE INTO `mod_temucraft_legacy_challenge` (`account`, `challenge`, `time`) VALUES ({}, {}, UNIX_TIMESTAMP())",
             account, challenge);
         ChatHandler(player->GetSession()).PSendSysMessage(TemucraftModuleText("mod-temucraft-legacy", player->GetSession(), 1, "|cffff8000Legacy challenge complete:|r {}. |cffff8000+1 Legacy point|r "
-            "(every character on your account can spend it; .legacy)."), ChallengeName(challenge));
+            "(every character on your account can spend it; .temucraft legacy)."), ChallengeName(challenge));
     }
 
     void CheckHonorKills(Player* player)
@@ -548,7 +548,7 @@ public:
     {
         static ChatCommandTable commandTable =
         {
-            { "legacy", HandleLegacy, SEC_PLAYER, Console::No },
+            { "temucraft legacy", HandleLegacy, 102650, Console::No },
         };
         return commandTable;
     }

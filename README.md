@@ -1,6 +1,6 @@
 # mod-temucraft-legacy
 
-Account-wide Legacy points from challenges (class levels 30/60/80, profession skill 150/300/450, honorable kills 100/1000/10000, exploration, dungeon and raid achievements), spent on perks per character with `.legacy` (a gossip menu): Well Rested, Working Overtime, Bountiful Harvest, Reinforce, Diplomat, Field Guide, Thrill of Adventure, Swift Flights (flight paths 5% faster per rank; the speed-up itself is done by [mod-temucraft-travel](https://github.com/Temucraft/mod-temucraft-travel)). A rewards track gives items at 15/25/40/55 points.
+Account-wide Legacy points from challenges (class levels 30/60/80, profession skill 150/300/450, honorable kills 100/1000/10000, exploration, dungeon and raid achievements), spent on perks per character with `.temucraft legacy` (a gossip menu): Well Rested, Working Overtime, Bountiful Harvest, Reinforce, Diplomat, Field Guide, Thrill of Adventure, Swift Flights (flight paths 5% faster per rank; the speed-up itself is done by [mod-temucraft-travel](https://github.com/Temucraft/mod-temucraft-travel)). A rewards track gives items at 15/25/40/55 points.
 
 ## Install
 
