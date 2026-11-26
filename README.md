@@ -18,6 +18,8 @@ Account-wide Legacy points from challenges (class levels 30/60/80, profession sk
 | characters | `mod_temucraft_legacy_reward` | per account: rewards claimed |
 | (script) | gossip menu | 601630 (made by the script, nothing in the database) |
 
+A character deleted for good (`OnPlayerDeleteFromDB`, in the same transaction as the core's own deletes; not a `CharDelete.Method = 1` unlink, which can be restored) takes its `mod_temucraft_legacy_perk` rows with it; the account's challenges and rewards stay. `data/sql/db-characters/base/mod_temucraft_legacy_character_cleanup.sql` removes perk rows of characters deleted before; it is safe to run again.
+
 ## Works with other modules
 
 - Rewards are existing items: 46725, 49343, 40643, 49283.
